@@ -9,7 +9,7 @@ data = pd.read_csv('DailyDelhiClimateTest.csv', sep=',', parse_dates=['date'])
 print(data.head())
 
 # Choose specific columns for plotting
-columns_to_plot = ['meantemp', 'humidity', 'wind_speed','meanpressure']
+columns_to_plot = ['meantemp', 'humidity', 'wind_speed']
 
 # Plot selected columns
 fig, ax = plt.subplots()
