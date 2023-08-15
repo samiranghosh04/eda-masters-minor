@@ -65,7 +65,9 @@ The code does the following:
 ``` python
 import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.dates import DateFormatter
+import os
+from matplotlib.dates
+import DateFormatter
 import mplcursors import mpld3
 ```
 
@@ -73,43 +75,43 @@ import mplcursors import mpld3
 
 ```python
 # Read the data from the file and parse the dates
-data = pd.read_csv('DailyDelhiClimateTrain.csv', sep=',', parse_dates=['date'])
+d = pd.read_csv('DailyDelhiClimateTrain.csv', sep=',', parse_dates=['date'])
 ```
+
+**Describe the data**
 
 ``` python
 # Describe the data
-desc = data.describe()
-print(desc)
+d.describe()
 ```
 
 **Display the data types**
 
 ``` python
 # Display the data types
-types = data.dtypes
-print(types)
+d['date'] = pd.to_datetime(d['date'], format='%Y-%m-%d')
+d.info()
 
-typeDate = data['date'].dtypes
-print(typeDate)
-
-typeTemp = data['meantemp'].dtypes
-print(typeTemp)
-
-typeHumidity = data['humidity'].dtypes
-print(typeHumidity)
-
-typeWindSpeed = data['wind_speed'].dtypes
-print(typeWindSpeed)
-
-typeMeanPressure = data['meanpressure'].dtypes
-print(typeMeanPressure)
+# Display the data types
+#types = data.dtypes
+#print(types)
+#typeDate = data['date'].dtypes
+#print(typeDate)
+#typeTemp = data['meantemp'].dtypes
+#print(typeTemp)
+#typeHumidity = data['humidity'].dtypes
+#print(typeHumidity)
+#typeWindSpeed = data['wind_speed'].dtypes
+#print(typeWindSpeed)
+#typeMeanPressure = data['meanpressure'].dtypes
+#print(typeMeanPressure)
 ```
 
 **Display the first few rows of the data**
 
 ``` python
 # Display the first few rows of the data
-print(data.head())
+print(d.head())
 ```
 
 **Choose specific columns for plotting**
@@ -124,7 +126,7 @@ columns_to_plot = ['meantemp', 'humidity', 'wind_speed']
 ``` python
 # Plot selected columns
 fig, ax = plt.subplots()
-data.plot(x='date', y=columns_to_plot, ax=ax)
+d.plot(x='date', y=columns_to_plot, ax=ax)
 ```
 
 **Customize date format**
